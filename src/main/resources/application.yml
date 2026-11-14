@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: note-server
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/note}
+    username: ${DB_USER:note}
+    password: ${DB_PASSWORD}
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 51MB
+  jackson:
+    time-zone: UTC
+server:
+  port: ${APP_PORT:8080}
+  error:
+    include-message: never
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
+app:
+  media-root: ${MEDIA_ROOT:./data/media}
